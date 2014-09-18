@@ -1,6 +1,5 @@
 #include "Main.h"
 
-
 CMain::CMain(void)
 {
 }
@@ -32,11 +31,9 @@ int main(int argc, char* argv[])
 		sizeX = main.getSizeX();
 		waveParametres** arrParam = main.arrParametres;
 		CCalculateCrossingWaves calculateWaves(sizeT, sizeX, arrParam);
-		CGraphicsRendering graphicsRender;
-		graphicsRender.setSizeT(sizeT);
-		graphicsRender.setSizeX(sizeX);
-		graphicsRender.setArrParam(arrParam);
-		graphicsRender.renderGeneralGraph(NULL, NULL);
+		//calculateWaves.printCalculatedWaves();
+		CGraphicsRendering *graphic = new CGraphicsRendering(sizeX, sizeT, arrParam);
+		graphic->renderWindow(argc, argv);	
 	}
 	return 0;
 }

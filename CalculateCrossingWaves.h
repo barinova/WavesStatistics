@@ -18,6 +18,7 @@ class CCalculateCrossingWaves
     void setHeights();
     void setListProbabilities(std::vector<float> listHeights, std::vector<float>listCrestA,
                               std::vector<float> ListThroughA, typeCrossing type);
+
 	size_t sizeX,sizeT;
 	std::vector<heights> h;
 	std::vector<float> listHeihtsZDC;
@@ -31,6 +32,7 @@ class CCalculateCrossingWaves
 public:
 	CCalculateCrossingWaves(size_t sizeT, size_t sizeX, waveParametres** arrParametres);
 	~CCalculateCrossingWaves(void);
+	void printCalculatedWaves();
 	waveParametres** arrParametres;
     std::vector<waveEntity> calculatingWaves;
 };

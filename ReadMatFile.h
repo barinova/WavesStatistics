@@ -1,5 +1,5 @@
 #include <vector>
-#include "mat.h"
+#include <mat.h>
 
 #pragma once
 class CReadMatFile

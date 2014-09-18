@@ -37,7 +37,7 @@ CCalculateCrossingWaves::CCalculateCrossingWaves(size_t sizeT, size_t sizeX, wav
 						return;
 					}
 					calculatingWaves.push_back(newWave);
-					printf("%f %f\n", newWave.amplMin, newWave.amplMax);
+					//printf("Type: %f Null point: %f Ridge: %f Trough: %f Ampl min: %f Ampl max: %f\n", newWave.type, newWave.nullPoint, newWave.ridge, newWave.trough, newWave.amplMin, newWave.amplMax);
 				}
 		}
 	}
@@ -58,7 +58,7 @@ waveEntity CCalculateCrossingWaves::getSingleWave(int i, int j, typeCrossing typ
 	wave.nullPoint[k] = getNullPoint(arrParametres[i][j], arrParametres[i][j+1]);
     wave.amplMax = 0;
     wave.amplMin = 0;
-    currentPoint.sec = wave.nullPoint[k++];
+    currentPoint.sec = wave.nullPoint[k++];//??
     currentPoint.shift = 0;
 
 	 while(k < 3)
@@ -176,4 +176,13 @@ float CCalculateCrossingWaves::setSigma(std::vector<float> listHeights, float si
         sigma += sqrt(pow(listHeights.at(i) - sighificiantHeight, 2));
     }
     return (sigma/listHeights.size());
+}
+
+void CCalculateCrossingWaves::printCalculatedWaves()
+{
+	for (int i(0); i < calculatingWaves.size(); i++)
+	{
+		printf("Type: %f Null point: %f Ridge: %f Trough: %f Ampl min: %f Ampl max: %f\n", calculatingWaves[i].type, calculatingWaves[i].nullPoint,
+			calculatingWaves[i].ridge, calculatingWaves[i].trough, calculatingWaves[i].amplMin, calculatingWaves[i].amplMax);
+	}
 }
